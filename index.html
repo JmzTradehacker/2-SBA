@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,25 @@
     <script defer src="./index.js"></script>
     <script defer src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-    <div class="d-flex flex-column justify-content-center align-items-center mt-5">
-        <h1 class="text-center my-5 ">Cryptocurrency Price Tracker</h1>
-        <div id="crypto-container" class="d-flex flex-wrap w-50 justify-content-center">
-
+    <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+        <h1 class="text-center my-1 ">Cryptocurrency Price Tracker</h1>
+        <input type="text" id="search" class="form-control w-25 d-flex justify-content-center mt-4" placeholder="Search for a cryptocurrency...">
+        <div id="crypto-container" class="d-flex flex-wrap w-50 my-4 justify-content-center">
+            <!-- js data -->
         </div>
     </div>
+
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-center">Crypto Converter</h2>
+        <form id="converter" class="d-flex flex-column w-25">
+          <input type="number" id="amount" class="form-control text-center" placeholder="# of Coins into USD">
+          <select id="crypto-select" class="form-control text-center">
+            <!-- js data -->
+          </select>
+          <button type="submit" class="btn btn-primary">Convert</button>
+        </form>
+        <p class="text-center my-3" id="conversion-result"></p>
+      </div>
     
 </body>
 </html>

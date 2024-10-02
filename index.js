@@ -20,3 +20,40 @@ const options = {
         });
     })
     .catch(error => console.error('Error fetching data:', error));
+
+    document.getElementById('search').addEventListener('input', function(e) {
+        let sValue = e.target.value.toLowerCase();
+        let cryptoCards = document.querySelectorAll('.card')
+
+        cryptoCards.forEach(card => {
+            let coinName = card.querySelector('.card-title').textContent.toLowerCase();
+            if (coinName.includes(sValue)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        })
+    });
+
+    fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1')
+    .then(response => response.json())
+    .then(data => {
+        let cryptoSelect = document.getElementById('crypto-select');
+        data.forEach(coin => {
+            let option = document.createElement('option');
+            option.value = coin.current_price;
+            option.text = `${coin.name} (${coin.symbol.toUpperCase()})`;
+            cryptoSelect.appendChild(option);
+      });
+
+      document.getElementById('converter').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let amount = document.getElementById('amount').value;
+        let cryptoPrice = document.getElementById('crypto-select').value;
+        let result = amount * cryptoPrice;
+        document.getElementById('conversion-result').textContent = `Converted Value: $${result.toFixed(2)}`;
+      });
+      
+    });
+    
+
