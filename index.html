@@ -12,22 +12,19 @@
     <div class="d-flex flex-column justify-content-center align-items-center mt-3">
         <h1 class="text-center my-1 ">Cryptocurrency Price Tracker</h1>
         <input type="text" id="search" class="form-control w-25 d-flex justify-content-center mt-4" placeholder="Search for a cryptocurrency...">
-        <div id="crypto-container" class="d-flex flex-wrap w-50 my-4 justify-content-center">
-            <!-- js data -->
-        </div>
-    </div>
-
-    <div class="d-flex flex-column align-items-center">
-        <h2 class="text-center">Crypto Converter</h2>
-        <form id="converter" class="d-flex flex-column w-25">
-          <input type="number" id="amount" class="form-control text-center" placeholder="# of Coins into USD">
+        <h2 class="text-center my-3">Crypto Converter</h2>
+        <form id="converter" class="d-flex flex-column my-3 w-25">
+          <input type="number" id="amount" class="form-control text-center" placeholder="# of Coins into USD" required min='1'>
           <select id="crypto-select" class="form-control text-center">
             <!-- js data -->
           </select>
           <button type="submit" class="btn btn-primary">Convert</button>
         </form>
         <p class="text-center my-3" id="conversion-result"></p>
-      </div>
-    
+        <div id="crypto-container" class="d-flex flex-wrap mx-5 my-4 justify-content-center">
+            <!-- js data -->
+        </div>
+    </div>
+
 </body>
 </html>
