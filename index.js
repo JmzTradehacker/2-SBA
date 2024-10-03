@@ -89,12 +89,12 @@ const options = {
     // Event listener for the converter form
     document.getElementById('converter').addEventListener('submit', function (e) {
         e.preventDefault();
-        const amount = document.getElementById('amount').value;
-        const cryptoPrice = document.getElementById('crypto-select').value;
+        const amount = parseFloat(document.getElementById('amount').value);
+        const cryptoPrice = parseFloat(document.getElementById('crypto-select').value);
 
         // Check for empty or invalid inputs
-        if (amount <= 0 || isNaN(amount)) {
-            showCustomError('Please enter a valid amount greater than zero.');
+        if (amount < 0.00001 || isNaN(amount)) {
+            showCustomError('Please enter a valid amount greater than 0.00001.');
             return;
         }
 
